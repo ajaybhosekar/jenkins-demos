@@ -12,6 +12,8 @@ pipeline {
             steps {
                 
                 sh 'javac java-hello-world/HelloWorld.java'
+                sh 'java java-hello-world/HelloWorld'
+
             }
         }
         /*stage('Run Java Program') {
