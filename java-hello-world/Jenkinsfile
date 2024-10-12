@@ -14,7 +14,7 @@ pipeline {
                 sh 'dir'
                 sh 'cd java-hello-world'
                 sh 'dir'
-                //sh 'javac HelloWorld.java'
+                sh 'javac HelloWorld.java'
             }
         }
         /*stage('Run Java Program') {
