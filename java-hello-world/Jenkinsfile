@@ -11,12 +11,9 @@ pipeline {
         stage('Compile Java Program') {
             steps {
                 sh '''
-                    cd java-hello-world
-                    ls -la
                     javac HelloWorld.java
                     java HelloWorld
                 '''
-
             }
         }
         /*stage('Run Java Program') {
