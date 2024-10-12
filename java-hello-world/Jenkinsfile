@@ -10,17 +10,19 @@ pipeline {
         
         stage('Compile Java Program') {
             steps {
-                sh 'cd java-hello-world'
-                sh 'ls -la'
-                sh 'javac HelloWorld.java'
+                sh 'pwd'
+                //sh 'cd java-hello-world'
+
+                //sh 'ls -la'
+                //sh 'javac HelloWorld.java'
             }
         }
-        stage('Run Java Program') {
+        /*stage('Run Java Program') {
             steps {
                 sh 'cd java-hello-world'
                 sh 'ls -la'
                 sh 'java HelloWorld'
             }
-        }
+        }*/
     }
 }
