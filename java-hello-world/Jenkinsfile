@@ -1,0 +1,11 @@
+pipeline {
+    agent any
+
+    stages {
+        stage('Display Java Version') {
+            steps {
+                sh 'java --version'
+            }
+        }
+    }
+}
