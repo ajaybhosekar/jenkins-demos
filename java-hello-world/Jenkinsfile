@@ -12,7 +12,7 @@ pipeline {
             steps {
                 sh 'pwd'
                 sh 'dir'
-                sh 'cd java-hello-world'
+                sh 'cd ../java-hello-world'
                 sh 'dir'
                 sh 'javac HelloWorld.java'
             }
