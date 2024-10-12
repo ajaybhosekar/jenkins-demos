@@ -7,14 +7,23 @@ pipeline {
                 sh 'java --version'
             }
         }
+        stage('change directory') {
+            steps {
+                sh 'cd java-hello-world'
+                sh 'ls -la'
+
+            }
+        }
         stage('Compile Java Program') {
             steps {
-                sh 'javac java-hello-world/HelloWorld.java'
+                sh 'ls -la'
+                sh 'javac HelloWorld.java'
             }
         }
         stage('Run Java Program') {
             steps {
-                sh 'java java-hello-world/HelloWorld'
+                sh 'ls -la'
+                sh 'java HelloWorld'
             }
         }
     }
