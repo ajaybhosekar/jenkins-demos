@@ -12,9 +12,8 @@ pipeline {
             steps {
                 sh 'pwd'
                 sh 'dir'
-                //sh 'cd java-hello-world'
-
-                //sh 'ls -la'
+                sh 'cd java-hello-world'
+                sh 'ls -la'
                 //sh 'javac HelloWorld.java'
             }
         }
