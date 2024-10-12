@@ -9,12 +9,12 @@ pipeline {
         }
         stage('Compile Java Program') {
             steps {
-                sh 'javac HelloWorld.java'
+                sh 'javac java-hello-world/HelloWorld.java'
             }
         }
         stage('Run Java Program') {
             steps {
-                sh 'java HelloWorld'
+                sh 'java java-hello-world/HelloWorld'
             }
         }
     }
