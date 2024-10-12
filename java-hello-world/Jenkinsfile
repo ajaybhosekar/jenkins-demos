@@ -12,7 +12,8 @@ pipeline {
             steps {
                 
                 sh 'javac java-hello-world/HelloWorld.java'
-                sh 'java java-hello-world/HelloWorld'
+                sh 'cd java-hello-world'
+                sh 'java HelloWorld'
 
             }
         }
