@@ -10,10 +10,12 @@ pipeline {
         
         stage('Compile Java Program') {
             steps {
-                sh 'cd java-hello-world'
-                sh 'ls -la'
-                sh 'javac HelloWorld.java'
-                sh 'java HelloWorld'
+                sh '''
+                    cd java-hello-world
+                    ls -la
+                    javac HelloWorld.java
+                    java HelloWorld
+                '''
 
             }
         }
