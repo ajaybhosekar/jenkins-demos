@@ -11,6 +11,7 @@ pipeline {
         stage('Compile Java Program') {
             steps {
                 sh 'pwd'
+                sh 'cd ..'
                 sh 'cd java-hello-world'
                 sh 'pwd'
                 sh 'javac HelloWorld.java'
