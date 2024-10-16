@@ -8,13 +8,17 @@ pipeline {
             }
         }
         
-        stage('Compile Java Program') {
+        stage('Compile Java Program and create Jar file') {
             steps {
                 sh '''
                     cd java-hello-user
                     javac HelloUser.java
                     jar cfe hello-user.jar HelloUser HelloUser.class
                     java -jar hello-user.jar
+
+                    docker build -t hello-user .
+                    docker run -it --name hello-user-cont hello-user /bin/bash
+
                 '''
             }
         }
