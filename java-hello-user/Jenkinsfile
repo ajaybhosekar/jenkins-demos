@@ -16,6 +16,9 @@ pipeline {
                     jar cfe hello-user.jar HelloUser HelloUser.class
                     
                     docker build -t hello-user .
+
+                    # List Docker images to verify
+                    docker images
                     
 
                 '''
