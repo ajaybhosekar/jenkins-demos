@@ -1,0 +1,22 @@
+pipeline {
+    agent any
+
+    stages {
+        stage('Display Java Version') {
+            steps {
+                sh 'java --version'
+            }
+        }
+        
+        stage('Compile Java Program') {
+            steps {
+                sh '''
+                    cd java-hello-user
+                    javac HelloUser.java
+                    jar cfe hello-user.jar HelloUser HelloUser.class
+                    java -jar hello-user.jar
+                '''
+            }
+        }
+    }
+}
