@@ -17,7 +17,7 @@ pipeline {
                     java -jar hello-user.jar
 
                     docker build -t hello-user .
-                    docker run -it hello-user
+                    
 
                 '''
             }
