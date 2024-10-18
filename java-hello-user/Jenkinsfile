@@ -19,8 +19,19 @@ pipeline {
 
                     # List Docker images to verify
                     docker images
+
+                    
                     
 
+                '''
+            }
+
+        }
+
+        stage('run the docker container') {
+            steps {
+                sh '''
+                    docker run -it hello-user /bin/bash
                 '''
             }
         }
