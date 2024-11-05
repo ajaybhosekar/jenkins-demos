@@ -11,7 +11,7 @@ pipeline {
         stage('Compile Java Program and create Jar file') {
             steps {
                 sh '''
-                    cd java-hello-user
+                    cd java-hello-user-docker-compose
                     javac HelloUser.java
                     jar cfe hello-user.jar HelloUser HelloUser.class
 
