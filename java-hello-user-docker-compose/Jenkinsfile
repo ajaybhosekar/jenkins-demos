@@ -22,6 +22,8 @@ pipeline {
 
                     docker --version
                     docker compose version
+
+                    docker compose up --build
                     
                 '''
             }
