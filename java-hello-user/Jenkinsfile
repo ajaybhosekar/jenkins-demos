@@ -14,16 +14,7 @@ pipeline {
                     cd java-hello-user
                     javac HelloUser.java
                     jar cfe hello-user.jar HelloUser HelloUser.class
-                    
-                    
-                '''
-            }
 
-        }
-
-        stage('build the image and start the docker container') {
-            steps {
-                sh '''
                     docker build -t hello-user .
 
                     # List Docker images to verify
@@ -31,8 +22,19 @@ pipeline {
 
                     docker run --name hello-user-container hello-user
                     
+                    
                 '''
             }
+
         }
+
+        /*stage('build the image and start the docker container') {
+            steps {
+                sh '''
+                    
+                    
+                '''
+            }
+        }*/
     }
 }
