@@ -20,7 +20,7 @@ pipeline {
                     # List Docker images to verify
                     docker images
 
-                    docker compose up --build
+                    docker compose up
                     
                 '''
             }
