@@ -23,7 +23,7 @@ pipeline {
                     docker --version
                     docker compose version
 
-                    docker compose up --build
+                    docker compose -f ./docker-compose.yml up --build
                     
                 '''
             }
