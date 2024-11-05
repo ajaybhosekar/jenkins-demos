@@ -1,0 +1,11 @@
+services:
+  hello-user:
+    image: hello-user
+    build: 
+      context: .
+      dockerfile: Dockerfile
+    container_name: hello-user-container
+    restart: on-failure
+    stdin_open: true      # Keep stdin open to accept input
+    tty: true             # Enable TTY mode
+    

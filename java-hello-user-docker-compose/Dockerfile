@@ -31,6 +31,3 @@ ENTRYPOINT ["java", "-cp", "hello-user.jar" ,"HelloUser"]
 
 
 
-
-
-
