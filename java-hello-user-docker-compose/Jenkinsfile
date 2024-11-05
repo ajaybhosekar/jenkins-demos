@@ -20,7 +20,7 @@ pipeline {
                     # List Docker images to verify
                     docker images
 
-                    docker run --name hello-user-container hello-user
+                    docker compose up --build
                     
                 '''
             }
