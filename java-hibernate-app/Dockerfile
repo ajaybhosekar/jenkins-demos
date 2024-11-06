@@ -14,7 +14,10 @@ COPY target/java-hibernate-app-0.0.1-SNAPSHOT-jar-with-dependencies.jar /app/tar
 #COPY lib/mysql-connector-j-9.0.0.jar /app/lib/
 
 # Run the application
-CMD ["java", "-jar", "target/java-hibernate-app-0.0.1-SNAPSHOT-jar-with-dependencies.jar"]
+#CMD ["java", "-jar", "target/java-hibernate-app-0.0.1-SNAPSHOT-jar-with-dependencies.jar"]
+
+# Define the entry point to run the main method of the JAR
+ENTRYPOINT ["java", "-cp", "target/java-hibernate-app-0.0.1-SNAPSHOT-jar-with-dependencies.jar" ,"demos.hibernate.Main"]
 
 
 
