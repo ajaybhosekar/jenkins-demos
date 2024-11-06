@@ -27,7 +27,9 @@ services:
 
   app:
     image: java-hibernate-app
-    build: .
+    build:
+      context: .
+      dockerfile: Dockerfile
     container_name: java-hibernate-app-container
     depends_on:
       mysql:
