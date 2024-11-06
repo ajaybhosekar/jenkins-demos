@@ -8,7 +8,7 @@ services:
     container_name: mysql-container
     environment:
       MYSQL_ROOT_PASSWORD: 123456
-      MYSQL_DATABASE: springboot_docker_db
+      MYSQL_DATABASE: jdbc_demos
       #MYSQL_ROOT_HOST: '%'  # Allow root to connect from any host
     ports:
       - "3307:3306"
@@ -27,7 +27,9 @@ services:
 
   app:
     image: java-springboot-app
-    build: .
+    build:
+      context: .
+      dockerfile: Dockerfile
     container_name: java-springboot-app-container
     ports:
       - "9090:9090" # Host:Container
