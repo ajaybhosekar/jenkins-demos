@@ -14,7 +14,7 @@ WORKDIR /app
 #COPY lib/mysql-connector-j-9.0.0.jar /app/lib/
 
 # Run the application
-CMD ["java", "-jar", "/java-hibernate-app/target/java-hibernate-app-0.0.1-SNAPSHOT-jar-with-dependencies.jar"]
+CMD ["java", "-jar", "target/java-hibernate-app-0.0.1-SNAPSHOT-jar-with-dependencies.jar"]
 
 
 
