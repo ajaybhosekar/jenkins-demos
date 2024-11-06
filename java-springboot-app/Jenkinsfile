@@ -1,0 +1,43 @@
+pipeline {
+    agent any
+
+    /*environment {
+        MAVEN_HOME = tool 'Maven'  // Ensure Maven is installed in Jenkins
+    }*/
+
+    stages {
+
+        stage('Display Maven version') {
+            steps {
+                // Run Maven build
+                sh "mvn --version"
+            }
+        }
+        stage('Build') {
+            steps {
+                sh '''
+                    cd java-springboot-app
+                    mvn clean package
+                '''
+                
+            }
+        }
+
+        stage('Run') {
+            steps {
+                script {
+
+                    sh '''
+                        cd java-springboot-app
+                        
+                        docker compose -f ./docker-compose.yaml up --build
+                    '''
+                    
+                    
+                }
+            }
+        }
+
+        
+    }
+}

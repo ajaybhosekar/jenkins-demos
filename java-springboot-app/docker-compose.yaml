@@ -1,0 +1,47 @@
+services:
+  mysql:
+    image: mysql:oraclelinux9
+    restart: always
+    #build:
+      #context: .
+      #dockerfile: Dockerfile.mysql # The Dockerfile for MySQL
+    container_name: mysql-container
+    environment:
+      MYSQL_ROOT_PASSWORD: 123456
+      MYSQL_DATABASE: springboot_docker_db
+      #MYSQL_ROOT_HOST: '%'  # Allow root to connect from any host
+    ports:
+      - "3307:3306"
+    volumes:
+      - ./docker_compose_springboot_data:/var/lib/mysql 
+      #- ./data.sql:/docker-entrypoint-initdb.d/data.sql # Mount SQL file to the init directory
+    healthcheck:
+      test: ["CMD", "mysqladmin", "ping", "-h", "localhost"]
+      interval: 10s
+      retries: 10  # Increase retries to allow for longer startup
+      start_period: 60s  # Give MySQL more time to initialize
+      timeout: 5s
+    
+    # Optional: Uncomment if you want to initialize the database
+    #command: --init-file=/app/data.sql
+
+  app:
+    image: java-springboot-app
+    build: .
+    container_name: java-springboot-app-container
+    ports:
+      - "9090:9090" # Host:Container
+    environment:
+      SPRING_PROFILES_ACTIVE: prod
+    depends_on:
+      mysql:
+        condition: service_healthy
+    
+    stdin_open: true      # Keep stdin open to accept input
+    tty: true             # Enable TTY mode
+
+volumes:
+  docker_compose_springboot_data:
+
+
+
