@@ -11,9 +11,15 @@ import demos.hibernate.entity.Product;
 import demos.hibernate.util.HibernateUtil;
 
 public class ProductDAO {
+
+	private SessionFactory factory;
+
+	public ProductDAO() {
+		factory = HibernateUtil.getSessionFactory();
+	}
 	
 	public int saveProduct(Product product) {
-		SessionFactory factory = HibernateUtil.getSessionFactory();
+		//SessionFactory factory = HibernateUtil.getSessionFactory();
 		Session s1 = factory.openSession();
 		Transaction s1Tx1 = s1.getTransaction();
 		s1Tx1.begin();
@@ -23,7 +29,7 @@ public class ProductDAO {
 	}
 	
 	public List<Product> getAllProducts() {
-		SessionFactory factory = HibernateUtil.getSessionFactory();
+		//SessionFactory factory = HibernateUtil.getSessionFactory();
 		Session s1 = factory.openSession();
 		Transaction s1Tx1 = s1.getTransaction();
 		s1Tx1.begin();
