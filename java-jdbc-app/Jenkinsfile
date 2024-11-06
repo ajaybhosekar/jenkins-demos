@@ -23,8 +23,7 @@ pipeline {
                     # List Docker images to verify
                     docker images
 
-                    docker compose -f ./docker-compose.yml up --build
-                    
+                    docker compose -f ./docker-compose.yml up --build  
                 '''
             }
 
