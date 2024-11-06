@@ -23,14 +23,20 @@ pipeline {
             }
         }
 
-        /*stage('Run') {
+        stage('Run') {
             steps {
                 script {
+
+                    sh '''
+                        cd java-hibernate-app
+                        
+                        docker compose -f ./docker-compose.yml up --build
+                    '''
                     
-                    sh "java -jar target/java-hibernate-app-0.0.1-SNAPSHOT-jar-with-dependencies.jar"
+                    
                 }
             }
-        }*/
+        }
 
         
     }
