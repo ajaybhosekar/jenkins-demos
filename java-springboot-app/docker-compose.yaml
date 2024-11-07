@@ -2,7 +2,7 @@ networks:
   app_network:
     driver: bridge
 services:
-  mysql:
+  my-mysql:
     image: mysql:oraclelinux9
     restart: always
     #build:
@@ -33,8 +33,7 @@ services:
       context: .
       dockerfile: Dockerfile
     container_name: java-springboot-app-container
-    volumes:
-      - ./java_springboot_app_data:/var/lib/mysql
+    
     networks:
       - app_network
     ports:
@@ -42,7 +41,7 @@ services:
     environment:
       SPRING_PROFILES_ACTIVE: prod
     depends_on:
-      mysql:
+      my-mysql:
         condition: service_healthy
     
     stdin_open: true      # Keep stdin open to accept input
