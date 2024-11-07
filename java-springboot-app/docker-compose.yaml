@@ -1,3 +1,6 @@
+networks:
+  app_network:
+
 services:
   mysql:
     image: mysql:oraclelinux9
@@ -6,6 +9,8 @@ services:
       #context: .
       #dockerfile: Dockerfile.mysql # The Dockerfile for MySQL
     container_name: mysql-container
+    networks:
+      - app_network
     environment:
       MYSQL_ROOT_PASSWORD: 123456
       MYSQL_DATABASE: jdbc_demos
@@ -22,6 +27,8 @@ services:
       start_period: 60s  # Give MySQL more time to initialize
       timeout: 5s
     
+    
+    
     # Optional: Uncomment if you want to initialize the database
     #command: --init-file=/app/data.sql
 
@@ -31,6 +38,8 @@ services:
       context: .
       dockerfile: Dockerfile
     container_name: java-springboot-app-container
+    networks:
+      - app_network
     ports:
       - "9090:9090" # Host:Container
     environment:
