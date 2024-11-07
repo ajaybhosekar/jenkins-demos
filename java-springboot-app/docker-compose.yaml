@@ -33,6 +33,8 @@ services:
       context: .
       dockerfile: Dockerfile
     container_name: java-springboot-app-container
+    volumes:
+      - ./java_springboot_app_data:/var/lib/mysql
     networks:
       - app_network
     ports:
