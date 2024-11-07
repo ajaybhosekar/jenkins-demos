@@ -1,6 +1,6 @@
 networks:
-  host_network:
-    external:true
+  app_network:
+    driver: bridge
 services:
   mysql:
     image: mysql:oraclelinux9
@@ -10,7 +10,7 @@ services:
       #dockerfile: Dockerfile.mysql # The Dockerfile for MySQL
     container_name: mysql-container
     networks:
-      - host_network
+      - app_network
     environment:
       MYSQL_ROOT_PASSWORD: 123456
       MYSQL_DATABASE: jdbc_demos
@@ -24,8 +24,8 @@ services:
       test: ["CMD", "mysqladmin", "ping", "-h", "localhost"]
       interval: 10s
       retries: 10  # Increase retries to allow for longer startup
-      start_period: 90s  # Give MySQL more time to initialize
-      timeout: 300s
+      start_period: 200s  # Give MySQL more time to initialize
+      timeout: 5s
     
   app:
     image: java-springboot-app
@@ -34,7 +34,7 @@ services:
       dockerfile: Dockerfile
     container_name: java-springboot-app-container
     networks:
-      - host_network
+      - app_network
     ports:
       - "9090:9090" # Host:Container
     environment:
