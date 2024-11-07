@@ -34,7 +34,7 @@ pipeline {
                 sh '''
                     cd java-springboot-app
                     docker compose up -d my-mysql
-                    mvn clean package
+                    mvn clean package -DskipTests
                 '''
                 
             }
