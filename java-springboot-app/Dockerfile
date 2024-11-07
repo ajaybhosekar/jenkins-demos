@@ -1,5 +1,5 @@
 # Use an official OpenJDK runtime as a parent image
-FROM FROM container-registry.oracle.com/java/openjdk:22.0.2-oraclelinux8
+FROM container-registry.oracle.com/java/openjdk:22.0.2-oraclelinux8
 
 # Set the working directory inside the container
 WORKDIR /app
@@ -20,5 +20,5 @@ EXPOSE 9090
 CMD ["java", "-jar", "target/java-springboot-app-0.0.1-SNAPSHOT.jar"]
 
 # Define the entry point to run the main method of the JAR
-ENTRYPOINT ["java", "-cp", "target/java-springboot-app-0.0.1-SNAPSHOT.jar" ,"demos.springboot.JavaSpringbootAppApplication"]
+#ENTRYPOINT ["java", "-cp", "target/java-springboot-app-0.0.1-SNAPSHOT.jar" ,"demos.springboot.JavaSpringbootAppApplication"]
 

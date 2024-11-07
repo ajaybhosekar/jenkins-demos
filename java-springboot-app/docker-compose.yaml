@@ -13,7 +13,7 @@ services:
     ports:
       - "3307:3306"
     volumes:
-      - ./docker_compose_springboot_data:/var/lib/mysql 
+      - ./java_springboot_app_data:/var/lib/mysql 
       #- ./data.sql:/docker-entrypoint-initdb.d/data.sql # Mount SQL file to the init directory
     healthcheck:
       test: ["CMD", "mysqladmin", "ping", "-h", "localhost"]
@@ -43,7 +43,7 @@ services:
     tty: true             # Enable TTY mode
 
 volumes:
-  docker_compose_springboot_data:
+  java_springboot_app_data:
 
 
 
