@@ -38,7 +38,7 @@ pipeline {
                     sh '''
                         cd java-springboot-app
                         docker compose -f ./docker-compose.yaml down
-                        docker compose -f ./docker-compose.yaml --network app_network up --build -d
+                        docker compose -f ./docker-compose.yaml up --build -d
                         
                     '''
 
