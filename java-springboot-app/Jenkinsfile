@@ -39,7 +39,7 @@ pipeline {
                         cd java-springboot-app
                         docker compose -f ./docker-compose.yaml down
                         docker compose -f ./docker-compose.yaml --network app_network up --build -d
-                        sleep 30
+                        
                     '''
 
                     // Wait for MySQL container to be ready
