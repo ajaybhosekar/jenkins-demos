@@ -25,7 +25,7 @@ services:
       interval: 10s
       retries: 10  # Increase retries to allow for longer startup
       start_period: 90s  # Give MySQL more time to initialize
-      timeout: 5s
+      timeout: 300s
     
   app:
     image: java-springboot-app
