@@ -17,11 +17,20 @@ pipeline {
             steps {
                 sh '''
                     cd java-springboot-app
-                    mvn clean package -DskipTests
+                    docker compose up -d my-mysql
+                    // Wait until MySQL is ready
+                    ./scripts/wait-for-it.sh mysql:3306 -t 60
+                        mvn clean package -DskipTests
                 '''
                 
             }
         }
+        stage('Test') {
+            steps {
+                sh 'mvn test'
+            }
+        }
+
 
         
 
