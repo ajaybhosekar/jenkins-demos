@@ -23,19 +23,16 @@ pipeline {
             }
         }
 
-        stage('Stop and remove the previous containers') {
-            steps {
-                sh '''
-                    cd java-springboot-app
-                    docker compose -f ./docker-compose.yaml down
-                '''
-                
-            }
-        }
+        
 
         stage('Run') {
             steps {
                 script {
+
+                    sh '''
+                        cd java-springboot-app
+                        docker compose -f ./docker-compose.yaml down
+                    '''
 
                     sh '''
                         cd java-springboot-app
