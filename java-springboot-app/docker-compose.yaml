@@ -1,6 +1,6 @@
 networks:
-  app_network:
-
+  host_network:
+    external:true
 services:
   mysql:
     image: mysql:oraclelinux9
@@ -10,7 +10,7 @@ services:
       #dockerfile: Dockerfile.mysql # The Dockerfile for MySQL
     container_name: mysql-container
     networks:
-      - app_network
+      - host_network
     environment:
       MYSQL_ROOT_PASSWORD: 123456
       MYSQL_DATABASE: jdbc_demos
@@ -34,7 +34,7 @@ services:
       dockerfile: Dockerfile
     container_name: java-springboot-app-container
     networks:
-      - app_network
+      - host_network
     ports:
       - "9090:9090" # Host:Container
     environment:
