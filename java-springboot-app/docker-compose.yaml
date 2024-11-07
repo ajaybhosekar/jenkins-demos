@@ -27,11 +27,6 @@ services:
       start_period: 90s  # Give MySQL more time to initialize
       timeout: 5s
     
-    
-    
-    # Optional: Uncomment if you want to initialize the database
-    #command: --init-file=/app/data.sql
-
   app:
     image: java-springboot-app
     build:
@@ -52,7 +47,7 @@ services:
     tty: true             # Enable TTY mode
 
 volumes:
-  java_springboot_app_data:
+  java_springboot_app_data:  
 
 
 

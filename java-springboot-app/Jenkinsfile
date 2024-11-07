@@ -25,22 +25,23 @@ pipeline {
 
         
 
-        stage('Run') {
+        stage('Run') {    
             steps {
                 script {
 
-                    sh '''
+                    /*sh '''
                         cd java-springboot-app
                         docker compose -f ./docker-compose.yaml down
                     '''
+                    */
 
                     sh '''
                         cd java-springboot-app
-                        docker compose -f ./docker-compose.yaml --network app_network up --build
+                        docker compose -f ./docker-compose.yaml up --build
                     '''
 
                     // Wait for MySQL container to be ready
-                    sh '''
+                    /*sh '''
                         while ! docker exec mysql-container mysqladmin ping -h"localhost" --silent; do
                             echo "Waiting for MySQL to be ready..."
                             sleep 5
@@ -51,7 +52,7 @@ pipeline {
                     sh '''
                         docker compose -f ./docker-compose.yaml restart app
                     '''
-                    
+                    */
                     
                 }
             }
