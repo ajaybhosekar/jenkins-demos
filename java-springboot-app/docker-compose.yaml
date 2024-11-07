@@ -24,7 +24,7 @@ services:
       test: ["CMD", "mysqladmin", "ping", "-h", "localhost"]
       interval: 10s
       retries: 10  # Increase retries to allow for longer startup
-      start_period: 60s  # Give MySQL more time to initialize
+      start_period: 90s  # Give MySQL more time to initialize
       timeout: 5s
     
     
