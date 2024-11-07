@@ -34,19 +34,19 @@ pipeline {
                 sh '''
                     cd java-springboot-app
                     docker compose up -d my-mysql
-                    mvn clean package -DskipTests
+                    mvn clean package
                 '''
                 
             }
         }
-        stage('Test') {
+        /*stage('Test') {
             steps {
                 sh '''
                     cd java-springboot-app
                     mvn test
                 '''
             }
-        }
+        }*/
 
 
         
