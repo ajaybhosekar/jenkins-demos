@@ -23,30 +23,34 @@ pipeline {
             }
         }
 
-        /*stage('Prepare Environment') {
+        stage('Prepare Environment') {
             steps {
                 // Ensure wait-for-it.sh is executable
                 sh 'chmod +x ./scripts/wait-for-it.sh'
             }
-        }*/
+        }
         stage('Build') {
             steps {
                 sh '''
                     cd java-springboot-app
                     docker compose up -d my-mysql
+
+                    // Wait until MySQL is ready
+                    sh './scripts/wait-for-it.sh mysql:3306 -t 60'
+
                     mvn clean package -DskipTests
                 '''
                 
             }
         }
-        /*stage('Test') {
+        stage('Test') {
             steps {
                 sh '''
                     cd java-springboot-app
                     mvn test
                 '''
             }
-        }*/
+        }
 
 
         
