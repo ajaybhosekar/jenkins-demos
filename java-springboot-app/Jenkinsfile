@@ -39,7 +39,7 @@ pipeline {
                     cd java-springboot-app
                     docker compose up -d my-mysql
 
-                    // Wait until MySQL is ready
+                    # Wait until MySQL is ready
                     sh './scripts/wait-for-it.sh mysql:3306 -t 60'
 
                     mvn clean package -DskipTests
