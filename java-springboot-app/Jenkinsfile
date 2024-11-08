@@ -54,7 +54,7 @@ pipeline {
             steps {
                 sh '''
                     cd java-springboot-app
-                    mvn test
+                    mvn clean test -Dspring.profiles.active=test
                 '''
             }
         }
