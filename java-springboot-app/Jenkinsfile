@@ -28,7 +28,7 @@ pipeline {
                 // Ensure wait-for-it.sh is executable
                 sh '''
                     cd java-springboot-app
-                    chmod +x $WORKSPACE/scripts/wait-for-it.sh
+                    chmod +x ./scripts/wait-for-it.sh
                 '''
                
             }
@@ -43,7 +43,7 @@ pipeline {
                     
 
                     # Wait until MySQL is ready
-                    $WORKSPACE/scripts/wait-for-it.sh my-mysql:3306 -t 200
+                    ./scripts/wait-for-it.sh my-mysql:3306 -t 200
 
                     mvn clean package -DskipTests
                 '''
