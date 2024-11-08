@@ -38,6 +38,7 @@ pipeline {
                 sh '''
                     cd java-springboot-app
                     docker compose up -d my-mysql
+                    docker logs mysql-container
 
                     # Wait until MySQL is ready
                     ./scripts/wait-for-it.sh my-mysql:3306 -t 200
