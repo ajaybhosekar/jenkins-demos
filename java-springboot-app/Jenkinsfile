@@ -39,8 +39,8 @@ pipeline {
                     cd java-springboot-app
                     docker compose up -d my-mysql
                     
-                    #docker exec mysql-container mysqladmin ping -h my-mysql -u root -p123456
-                    telnet my-mysql 3306
+                    docker exec mysql-container mysqladmin ping -h my-mysql -u root -p123456
+                    
 
                     # Wait until MySQL is ready
                     ./scripts/wait-for-it.sh my-mysql:3306 -t 200
