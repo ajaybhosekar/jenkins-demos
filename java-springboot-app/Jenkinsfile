@@ -40,7 +40,7 @@ pipeline {
                     docker compose up -d my-mysql
 
                     # Wait until MySQL is ready
-                    sh './scripts/wait-for-it.sh my-mysql:3306 -t 60'
+                    ./scripts/wait-for-it.sh my-mysql:3306 -t 60
 
                     mvn clean package -DskipTests
                 '''
