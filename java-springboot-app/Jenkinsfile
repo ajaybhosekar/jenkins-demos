@@ -37,7 +37,7 @@ pipeline {
             steps {
                 sh '''
                     cd java-springboot-app
-                    docker compose up -d my-mysql
+                    #docker compose up -d my-mysql
                     
                     #docker exec mysql-container mysqladmin ping -h my-mysql -u root -p123456
                     
