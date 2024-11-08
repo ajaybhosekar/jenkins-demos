@@ -26,7 +26,11 @@ pipeline {
         stage('Prepare Environment') {
             steps {
                 // Ensure wait-for-it.sh is executable
-                sh 'chmod +x ./scripts/wait-for-it.sh'
+                sh '''
+                    cd java-springboot-app
+                    chmod +x ./scripts/wait-for-it.sh
+                '''
+               
             }
         }
         stage('Build') {
